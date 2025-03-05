@@ -127,3 +127,49 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Header Container */
+  .header-container {
+    @apply bg-black text-white p-4;
+  }
+
+  /* Inner Container */
+  .header-inner {
+    @apply container mx-auto flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0;
+  }
+
+  /* Logo */
+  .header-logo {
+    @apply flex-shrink-0;
+  }
+
+  /* Search Form */
+  .header-search-form {
+    @apply w-full h-11 md:px-0 lg:px-10 sm:w-auto sm:flex-1 sm:mx-4;
+  }
+
+  .header-search-input {
+    @apply w-full  px-4 py-2 text-gray-100 bg-gray-900 rounded-lg  focus:border-transparent  focus:outline-none focus:ring-2  border-2 border-red-800 hover:border-red-600 ;
+  }
+
+  /* Basket and Orders Links */
+  .header-action-link {
+    @apply flex items-center space-x-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg;
+  }
+
+  /* Sign In Button */
+  .header-signin-button {
+    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg animate-bounce hover:animate-none;
+  }
+
+  /* Create Passkey Button */
+  .header-passkey-button {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg animate-pulse border border-blue-300;
+  }
+
+  /* User Button Container */
+  .header-user-container {
+    @apply flex items-center space-x-2;
+  }
+}
