@@ -131,7 +131,7 @@
 @layer utilities {
   /* Header Container */
   .header-container {
-    @apply bg-black text-white p-4;
+    @apply  bg-gradient-to-r from-stone-100   to-black  text-white opacity-90 p-4;
   }
 
   /* Inner Container */
@@ -146,30 +146,35 @@
 
   /* Search Form */
   .header-search-form {
-    @apply w-full h-11 md:px-0 lg:px-10 sm:w-auto sm:flex-1 sm:mx-4;
+    @apply w-full h-11 md:px-0 lg:px-10 sm:w-auto sm:flex-1 sm:mx-4 ;
   }
 
   .header-search-input {
-    @apply w-full  px-4 py-2 text-gray-100 bg-gray-900 rounded-lg  focus:border-transparent  focus:outline-none focus:ring-2  border-2 border-red-800 hover:border-red-600 ;
+    @apply w-full  px-4 py-2 text-black font-bold  rounded-lg  focus:border-b-blue-950  focus:outline-red-700 focus:ring-2  border-1 border-stone-200 hover:border-red-600 placeholder:text-red-800
+    bg-gradient-to-r from-stone-200   to-stone-900  opacity-50;
   }
 
   /* Basket and Orders Links */
   .header-action-link {
-    @apply flex items-center space-x-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg;
+    @apply flex items-center space-x-2  bg-transparent hover:bg-red-700 text-white font-bold py-2 px-3 rounded-lg;
   }
 
   /* Sign In Button */
   .header-signin-button {
-    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg animate-bounce hover:animate-none;
+    @apply bg-transparent border-stone-200 border-3 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg animate-none hover:animate-none;
   }
 
   /* Create Passkey Button */
   .header-passkey-button {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg animate-pulse border border-blue-300;
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg animate-pulse border border-blue-900;
   }
 
   /* User Button Container */
   .header-user-container {
     @apply flex items-center space-x-2;
   }
+}
+
+body {
+  font-family: "Inter", sans-serif;
 }
