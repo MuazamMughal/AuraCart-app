@@ -9,13 +9,13 @@ if(!sale?.isActive){
     return null
 }
 return (
-  <div className="bg-black py-4  opacity-60 px-6 shadow-lg relative overflow-hidden">
+  <div className="bg-black py-4  opacity-70 px-6 shadow-lg relative overflow-hidden">
     {/* Animated Red Particles (CSS-based) */}
     <div className="absolute inset-0 overflow-hidden z-0">
       {[...Array(30)].map((_, i) => (
         <div
           key={i}
-          className="w-2 h-2 bg-red-950 rounded-full absolute animate-float"
+          className="w-2 h-2 bg-red-900 rounded-full absolute animate-float"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -28,7 +28,7 @@ return (
     {/* Banner Content */}
     <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center relative z-10">
       {/* Main Heading */}
-      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-red-900 animate-pulse">
+      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-red-800 animate-pulse">
         {sale.title} SALE ALERT! 
       </h1>
 
