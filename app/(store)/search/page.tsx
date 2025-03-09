@@ -1,3 +1,5 @@
+import ProductGrid from '@/components/ProductGrid'
+import { searchProductsByName } from '@/sanity/lib/products/searchProductsByName'
 import React from 'react'
 // so the main thing to concider is that in Next.js15 
 // the aprameter of geting the serch prms from the urs is differet from next14
@@ -5,9 +7,34 @@ import React from 'react'
 async function SearchPage({searchParams}:{searchParams: {query: string}}) {
     
     const {query} =await searchParams
+    const products = await searchProductsByName(query)
+    // writing the without item logic
+    if(!products?.length){
+
+        return(
+        <div className='flex flex-col  items-center justify-top min-h-screen p-4 text-red-800'>
+            <div className='p-8 rounded-lg shadow-md w-full max-w-4xl'>
+            <h1 className=' text-3xl font-bold m-6 text-center'>
+                No products found for this : "{query}""
+            </h1>
+            <p className='text-center'>
+                Try different search keyword
+            </p>
+        </div>
+        
+        </div>
+        
+    )
+    }
     return (
-        <div>
-            Serchpage with the query{query} 
+        <div className='flex flex-col  items-center justify-top min-h-screen p-4 text-red-800'>
+            <div className='p-8 rounded-lg shadow-md w-full max-w-4xl'>
+            <h1 className=' text-3xl font-bold m-6 text-center'>
+                Search Results For Query : "{query}""
+            </h1>
+           {<ProductGrid products={products}/>}
+        </div>
+        
         </div>
     )
     

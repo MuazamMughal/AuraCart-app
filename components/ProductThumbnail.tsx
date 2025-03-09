@@ -12,7 +12,7 @@ function ProductThumbnail  ({ product }: { product: Product })  {
       href={`/product/${product.slug?.current}`}
       className={`group flex flex-col bg-white text-black rounded-lg shadow-md border-gray-600
     hover:shadow-xl transition-all  duration-300 overflow-hidden ${isOutOfStock ? 'opacity-50' : ''}`}>
-hello this
+
       <div className='relative aspect-square h-full w-full overflow-hidden '>
         {product.image && (
           <Image
