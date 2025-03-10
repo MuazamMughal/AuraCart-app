@@ -355,41 +355,8 @@ export type ALL_PRODUCTS_QUERYResult = Array<{
 
 // Source: ./sanity/lib/products/getProductBySlug.ts
 // Variable: PRODUCT_BY_SLUG_QUERY
-// Query: *[_type == "product" || slug.current == $slug]| order(name asc)[0]
+// Query: *[    _type == "product" && slug.current == $slug] | order( name asc ) [0]
 export type PRODUCT_BY_SLUG_QUERYResult = {
-  _id: string;
-  _type: "category";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  description?: string;
-} | {
-  _id: string;
-  _type: "order";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  orderNumber?: string;
-  stripeCheckoutSessionId?: string;
-  StripeCustomerId?: string;
-  products?: Array<{
-    product?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "product";
-    };
-    quantity?: number;
-    _key: string;
-  }>;
-  totalPrice?: number;
-  currency?: string;
-  amountDiscounted?: number;
-  status?: "cancelled" | "delivered" | "paid" | "pending" | "shipped";
-  orderDate?: string;
-} | {
   _id: string;
   _type: "product";
   _createdAt: string;
@@ -447,60 +414,6 @@ export type PRODUCT_BY_SLUG_QUERYResult = {
     [internalGroqTypeReferenceTo]?: "category";
   }>;
   stock?: number;
-} | {
-  _id: string;
-  _type: "sales";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  decryption?: string;
-  discountAmount?: number;
-  validFrom?: string;
-  validUntil?: string;
-  couponCode?: string;
-  isActive?: boolean;
-} | {
-  _id: string;
-  _type: "sanity.fileAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  source?: SanityAssetSourceData;
-} | {
-  _id: string;
-  _type: "sanity.imageAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  metadata?: SanityImageMetadata;
-  source?: SanityAssetSourceData;
 } | null;
 
 // Source: ./sanity/lib/products/searchProductsByName.ts
@@ -590,7 +503,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[\n        _type == \"category\"] | order( name asc ) ": ALL_Categories_QUERYResult;
     "*[\n        _type == \"product\"] | order( name asc ) ": ALL_PRODUCTS_QUERYResult;
-    "*[_type == \"product\" || slug.current == $slug]| order(name asc)[0]": PRODUCT_BY_SLUG_QUERYResult;
+    "\n  *[\n    _type == \"product\" && slug.current == $slug] | order( name asc ) [0]\n    ": PRODUCT_BY_SLUG_QUERYResult;
     "*[_type == \"product\" && name match $searchParams]|order(name asc)": PRODUCT_SEARCH_QUERYResult;
     "*[_type == \"sales\" && isActive == true && couponCode == $couponCode] | order(validFrom desc)[0]": ACTIVE_SALE_BY_COUPON_CODEResult;
   }
