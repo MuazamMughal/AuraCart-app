@@ -1,7 +1,8 @@
 import { Category, Product } from '@/sanity.types'
 import React from 'react'
-import CategorySelectorComp from './CategorySelectorComp'
+
 import ProductGrid from './ProductGrid'
+import { CategorySelectorComponent } from './ui/category-selector'
 
 interface ProductsViewProps {
     products: Product[],
@@ -15,7 +16,7 @@ const ProductsView = ({ products  , categories }: ProductsViewProps) => {
 
             {/* now ther is by the category */}
                 <div className=' w-full sm:w-[200px]'>
-                    <CategorySelectorComp  categories={categories}/>
+                    <CategorySelectorComponent  categories={categories}/>
              </div>
 
 
