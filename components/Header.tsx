@@ -5,8 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { PackageIcon, TrolleyIcon } from '@sanity/icons';
+import useBasketStore from '@/app/(store)/store';
 
 const Header = () => {
+  const itemCount = useBasketStore((state)=>
+  state.items.reduce((total , item)=>total+item.quantity,0))
   const { user } = useUser();
 
   const createClerkPasskey = async () => {
@@ -39,8 +42,11 @@ const Header = () => {
         {/* Basket, Orders, and User Actions */}
         <div className="flex items-center space-x-4">
           {/* Basket */}
-          <Link href="/basket" className="header-action-link">
-            <TrolleyIcon className="w-6 h-6" />
+          <Link href="/basket" className="header-action-link relative">
+             <span className=' absolute -top-2 -right-2 bg-white text-red-800
+            rounded-full w-5 h-5 flex items-center justify-center text-xs'>
+              {itemCount}</span><TrolleyIcon className="w-6 h-6" />
+           
             <span>My Cart</span>
           </Link>
 
