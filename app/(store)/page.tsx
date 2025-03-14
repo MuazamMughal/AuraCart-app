@@ -18,7 +18,7 @@ export default async function Home() {
   
   return (
     <div>
-      <Hero/>
+      <Hero/> 
       <SaleBanner/>
 
 <div className='text-white'>
