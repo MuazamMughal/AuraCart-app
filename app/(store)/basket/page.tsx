@@ -39,29 +39,30 @@ const BasketPage = () => {
             </div>
         )
     }
-    // const handleCheackout   = async () =>{
-    //     if(!isSignedIn){
-    //         setIsLoading(true)
-    //     }
+    const handleCheackout   = async () =>{
+        if(!isSignedIn){
+            setIsLoading(true)
+        }
     
-//     try{
-// const metadata: Metadata={
-//     orderNumber :crypto.randomUUID(),
-//     customerName :user?.fullName ?? "Unknown",
-//     coustomerEmail:user?.emailAddresses[0].emailAddress??"Unknown",
-//     clerkUserId: user!.id,
-// }
-// const cheackoutUrl = await createCheackOutSession(groupedItems , metadata);
-// if(cheackoutUrl){
-//     window.location.href = cheackoutUrl
-// }
+    try{
+const metadata: Metadata={
+    orderNumber :crypto.randomUUID(),
+    customerName :user?.fullName ?? "Unknown",
+    coustomerEmail:user?.emailAddresses[0].emailAddress??"Unknown",
+    clerkUserId: user!.id,
+}
+const checkoutUrl = await createCheackOutSession(groupedItems , metadata);
 
-//     }catch(error){
-// console.error(error)
-//     }finally{
-//         setIsLoading(false)
-//     }
-//     }
+if(checkoutUrl){
+    window.location.href = checkoutUrl
+}
+
+    }catch(error){
+console.error("crating cheacout session", error)
+    }finally{
+        setIsLoading(false)
+    }
+    }
     return (
         <div className='container mx-auto p-4 max-w-6xl'>
             <h1 className='text-2xl font-bold mb-4'> Your Basket</h1>
@@ -116,11 +117,11 @@ const BasketPage = () => {
                     </div>
                     {isSignedIn ? (
                         <button
-                        // onClick={handleCheackout}
+                        onClick={handleCheackout}
                         disabled={isLoading}
                         className=' mt-4 w-full bg-red-500 text-white px-4 py-2 rounded *:hover:bg-red-700
                         disabled:bg-gray-400 '>
-                            {isLoading ? "Procesing" : "Checkout"}
+                            {isLoading ? "Procesing ..." : "Checkout"}
 
                         </button>
                     ):(
