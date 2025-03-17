@@ -12,6 +12,7 @@ import {structureTool} from 'sanity/structure'
 import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schemaTypes'
 import {structure} from './sanity/structure'
+import { presentationTool } from 'sanity/presentation'
 
 export default defineConfig({
   basePath: '/studio',
@@ -24,5 +25,15 @@ export default defineConfig({
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
+    // here we add the visual studio cinfigration 
+    presentationTool({
+      previewUrl:{
+        preview:"/",
+        previewMode:{
+          enable:"/draft-mode/enable"
+          // so the analigy to use the darft mmode is that every budy can use it we have to create 2 draft token 1 for creating and second for the recever to representation 
+        }
+      }
+    })
   ],
 })

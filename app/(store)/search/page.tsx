@@ -4,7 +4,7 @@ import React from 'react'
 // so the main thing to concider is that in Next.js15 
 // the aprameter of geting the serch prms from the urs is differet from next14
 
-async function SearchPage({searchParams}:{searchParams: {query: string}}) {
+async function SearchPage({searchParams}:{searchParams: Promise<{query: string}>}) {
     
     const {query} =await searchParams
     const products = await searchProductsByName(query)
