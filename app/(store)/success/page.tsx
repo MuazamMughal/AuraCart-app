@@ -57,6 +57,15 @@ const SuccessPage = () => {
 
                             </p>
                         )}
+                        {/* {
+                            sessionId &&(
+                                <p className=' text-gray-300 flex justify-between '>
+                                    <span>Transaction ID : </span>
+                                    <span className=' font-mono text-sm'>{sessionId}</span>
+
+                                </p>
+                            )
+                        } */}
 
                     </div>
 
