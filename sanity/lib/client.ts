@@ -14,7 +14,7 @@ export const client = createClient({
   stega:{
     // so here we write the logic for url that if we have depled then vercel or othervise local host in development 
 
-    studioUrl:     process.env.VERCEL_URL ?
+    studioUrl:     process.env.NODE_ENV == "production" ?
      `https://${process.env.VERCEL_URL}/studio` : `${process.env.NEXT_PUBLIC_BASE_URL}/studio`,
   }
 
