@@ -23,7 +23,7 @@ export function CategorySelectorComponent({ categories }: CategorySelectorProps)
             <Button variant="outline"
                 role="combobox"
                 aria-expanded={open}
-                className="header-passkey-button  !animate-none !m-4 !px-6  !bg-red-700">
+                className="header-passkey-button  !animate-none !m-4 !px-6 !border-gray-300 !border-2 !bg-red-700">
                 {value ? categories.find((category) => category._id === value)?.title : "filter By Category"}
 
                 <ChevronsUpDown className=" ml-2 h-4  w-4 shrink-0" />

@@ -17,15 +17,19 @@ export default async function Home() {
   const categories = await getAllCategories();
   
   return (
-    <div>
+    <div className=" ">
       <Hero/> 
-      <SaleBanner/>
+      <div className=" bg-black">
+        <SaleBanner/>
+      </div>
+      
 
-<div className='text-white'>
+<div className='  p-10 '>
   <ProductsView products={products} categories={categories} />
 
   
 </div>
+
 
 
 

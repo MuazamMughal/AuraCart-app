@@ -68,7 +68,7 @@ const Header = () => {
                 {user.passkeys.length === 0 && (
                   <button
                     onClick={createClerkPasskey}
-                    className="header-passkey-button"
+                    className="header-passkey-button ml-3  !bg-red-600"
                   >
                     Create Passkey
                   </button>

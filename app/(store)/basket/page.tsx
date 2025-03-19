@@ -64,13 +64,13 @@ console.error("crating cheacout session", error)
     }
     }
     return (
-        <div className='container mx-auto p-4 max-w-6xl'>
+        <div className='container mx-auto p-4 max-w-6xl '>
             <h1 className='text-2xl font-bold mb-4'> Your Basket</h1>
             <div className=' flex flex-col lg:flex-row gap-8'>
                 <div className=' flex-grow'>
                     {groupedItems?.map((item) => (
                         <div key={item.product._id}
-                            className=' mb-4 p-4 border rounded flex items-center justify-between'>
+                            className=' mb-4 p-4 border-2 rounded flex items-center justify-between'>
                             <div className=' flex items-center  cursor-pointer flex-1 min-w-0'
                             onClick={()=>{
                                 router.push(`/product/${item.product.slug?.current}`)
@@ -102,8 +102,8 @@ console.error("crating cheacout session", error)
                         </div>
                     ))}
                 </div>
-                <div className=' w-full lg:w-80 lg:sticky lg:top-4 h-fit bg-white p-6 border rounded order-first
-                lg:order-last fixed bottom-0 left-auto lg:left-auto'>
+                <div className=' w-full lg:w-80 lg:sticky lg:top-4 h-fit  p-6 border-3 rounded order-first
+                lg:order-last bottom-0 left-auto lg:left-auto'>
                     <h3 className=' text-xl font-semibold'> Order Summary</h3>
                     <div className=' mt-4 space-y-2'>
                         <p className=' flex justify-between'>
@@ -119,14 +119,14 @@ console.error("crating cheacout session", error)
                         <button
                         onClick={handleCheackout}
                         disabled={isLoading}
-                        className=' mt-4 w-full bg-red-500 text-white px-4 py-2 rounded *:hover:bg-red-700
+                        className=' mt-4 w-full bg-red-500 text-white px-4 py-2 rounded-2xl hover:bg-red-700
                         disabled:bg-gray-400 '>
                             {isLoading ? "Procesing ..." : "Checkout"}
 
                         </button>
                     ):(
                         <SignInButton mode='modal'>
-                            <button className='mt-4 w-full bg-red-500 text-white px-4 py-2 rounded *:hover:bg-red-700
+                            <button className='mt-4 w-full bg-red-500 text-white px-4 py-2 rounded-2xl hover:bg-red-700
                         '>
                                 Sign in to Cheackout
                             </button>

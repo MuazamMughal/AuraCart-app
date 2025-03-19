@@ -7,6 +7,7 @@ import { SanityLive } from "@/sanity/lib/live";
 import { draftMode } from "next/headers";
 import DisableDraftMode from "@/components/DisableDraftMode";
 import { VisualEditing } from "next-sanity";
+import Footer from "@/components/Footer";
 
 
 const geistSans = Geist({
@@ -34,7 +35,7 @@ export default  async function RootLayout({
     <html lang="en">
       <body
       
-        className=" bg-black">
+        className=" bg-gradient-to-r from-stone-100   to-black  text-white opacity-90">
 
           {(await draftMode() ).isEnabled && (
             <>
@@ -45,6 +46,8 @@ export default  async function RootLayout({
         <Header/>
 
         {children}
+
+        <Footer/>
 
         <SanityLive/>
 
