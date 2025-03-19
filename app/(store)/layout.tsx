@@ -43,11 +43,15 @@ export default  async function RootLayout({
             <VisualEditing/>
             </>
           )}
+          
         <Header/>
 
         {children}
+        <div className=" mt-24">
+              <Footer/>
+        </div>
 
-        <Footer/>
+    
 
         <SanityLive/>
 
