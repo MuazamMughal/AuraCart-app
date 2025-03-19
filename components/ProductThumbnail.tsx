@@ -10,13 +10,13 @@ function ProductThumbnail  ({ product }: { product: Product })  {
   return (
     <Link
       href={`/product/${product.slug?.current}`}
-      className={`group flex flex-col bg-white text-black rounded-lg shadow-md border-gray-600
+      className={`group flex flex-col  bg-transparent text-black rounded-lg  shadow-2xl border-4 border-gray-300 hover:border-gray-400
     hover:shadow-xl transition-all  duration-300 overflow-hidden ${isOutOfStock ? 'opacity-50' : ''}`}>
 
       <div className='relative aspect-square h-full w-full overflow-hidden '>
         {product.image && (
           <Image
-            className=" object-contain transition-transform duration-300 group-hover:scale-105"
+            className=" object-contain  opacity-90 bg transition-transform duration-300 group-hover:scale-105"
             src={imageUrl(product.image).url()}
             alt={product.name || "product image"}
             fill
@@ -31,11 +31,11 @@ function ProductThumbnail  ({ product }: { product: Product })  {
 
       </div>
       <div className='p-4'>
-        <h2 className='text-lg font-semibold truncate text-gray-900'>
+        <h2 className='text-lg font-semibold truncate text-gray-50 '>
           {product.name}
         </h2>
 
-        <p className='mt-2 text-sm text-gray-700 line-clamp-2'>
+        <p className='mt-2 text-sm text-gray-500 line-clamp-2'>
           {product.description?.map((block) =>
             block._type=="block" 
             ? block.children?.map((child)=>child.text).join(""): ""
@@ -43,7 +43,7 @@ function ProductThumbnail  ({ product }: { product: Product })  {
           }
 
         </p>
-        <p className='mt-2 text-lg font-bold text-black'>
+        <p className='mt-2 text-lg font-bold text-red-600'>
         £{product.price}
         </p>
         

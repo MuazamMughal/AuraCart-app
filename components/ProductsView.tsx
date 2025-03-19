@@ -11,7 +11,7 @@ interface ProductsViewProps {
 
 const ProductsView = ({ products  , categories }: ProductsViewProps) => {
     return (
-        <div className='flex flex-col '>
+        <div className='flex flex-col pb-15 '>
             {/* we have to devide this in to secgments catogery and products */}
 
             {/* now ther is by the category */}
@@ -26,9 +26,12 @@ const ProductsView = ({ products  , categories }: ProductsViewProps) => {
 
                 <div>
                     <ProductGrid products={products}   />
-                    <hr className='w-1/2 sm:w-3/4' />
-                </div>
+                   
+                </div> 
+                <hr className='w-1/2  sm:w-3/4 mt-16 ' />
+                
             </div>
+            
 
         </div>
     )
