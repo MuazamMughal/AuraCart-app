@@ -15,7 +15,7 @@ async function SearchPage({searchParams}:{searchParams: Promise<{query: string}>
         <div className='flex flex-col  items-center justify-top min-h-screen p-4 text-red-800'>
             <div className='p-8 rounded-lg shadow-md w-full max-w-4xl'>
             <h1 className=' text-3xl font-bold m-6 text-center'>
-                No products found for this : "{query}""
+                No products found for this :&quot;{query}&quot;
             </h1>
             <p className='text-center'>
                 Try different search keyword
@@ -30,7 +30,7 @@ async function SearchPage({searchParams}:{searchParams: Promise<{query: string}>
         <div className='flex flex-col  items-center justify-top min-h-screen p-4 text-red-800'>
             <div className='p-8 rounded-lg shadow-md w-full max-w-4xl'>
             <h1 className=' text-3xl font-bold m-6 text-center'>
-                Search Results For Query : "{query}""
+                Search Results For Query : &quot;{query}&quot;
             </h1>
            {<ProductGrid products={products}/>}
         </div>

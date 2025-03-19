@@ -4,7 +4,6 @@ import ProductsView from "@/components/ProductsView";
 import SaleBanner from "@/components/SaleBanner";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
 import { getAllProducts } from "@/sanity/lib/products/getAllProducts";
-import Image from "next/image";
 
 
 
