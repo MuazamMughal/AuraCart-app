@@ -1,13 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const Hero = ( ) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+const Hero = () => {
 
 
- 
+
+
   return (
     <section className="bg-black text-white   relative overflow-hidden">
       {/* Gradient Background */}
@@ -31,8 +31,8 @@ const Hero = ( ) => {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-6xl text-black  font-bold mb-6 "
           >
-           <span className="opacity-80"> Don&apos;t just watch,{" "}<br/></span>
-           
+            <span className="opacity-80"> Don&apos;t just watch,{" "}<br /></span>
+
             <span className="text-red-600 lg:p-38 m-10 p-20">Let&apos;s buy it!</span>
           </motion.h2>
           <motion.p
@@ -57,21 +57,21 @@ const Hero = ( ) => {
 
         {/* Right Side: Morphing Image Effect */}
         <div className="lg:w-1/2 relative">
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="  relative"
-        >
-          <Image
-            src="/hero-pic.png" // Replace with your image
-            alt="Fashion Model"
-            width={450}
-            height={100}
-            className="   lg:visible  lg:ml-30 opacity-60  object-cover   rounded-lg  mix-blend-lighten  "
-            priority
-          />
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="  relative"
+          >
+            <Image
+              src="/hero-pic.png" // Replace with your image
+              alt="Fashion Model"
+              width={450}
+              height={100}
+              className="   lg:visible  lg:ml-30 opacity-60  object-cover   rounded-lg  mix-blend-lighten  "
+              priority
+            />
+          </motion.div>
         </div>
       </div>
 

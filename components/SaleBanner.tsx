@@ -35,7 +35,7 @@ return (
       {/* Subheading */}
       <p className="text-lg md:text-xl text-gray-300 mb-6">
       Use Coupon{" "}
-        <span className="font-bold text-red-500">  "{sale.couponCode}"  </span>
+        <span className="font-bold text-red-500">  &quot;{sale.couponCode}&quot;  </span>
         Grab your favorites now at{" "}
         <span className="font-bold text-red-500"> {sale.discountAmount}% OFF </span>! Limited time
         only. Don&apos;t miss out!

@@ -5,7 +5,7 @@ import { auth } from '@clerk/nextjs/server'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import React from 'react'
-import { form } from 'sanity/structure'
+
 
 const OrderPage = async () => {
 
@@ -14,7 +14,26 @@ const OrderPage = async () => {
         return redirect("/")
     }
 
-    const orders = await getMyOrders(userId)
+    type Order = {
+        orderNumber: string;
+        orderDate: string;
+        status: string;
+        totalPrice: number;
+        currency: string;
+        amountDiscount?: number;
+        product: {
+            product: {
+                _id: string;
+                name: string;
+                image: string;
+                price: number;
+            };
+            quantity: number;
+        }[];
+    };
+
+    const orders: Order[] = await getMyOrders(userId);
+
 
     return (
         <div className=' flex flex-col items-center justify-center min-h-screen p-4'>
@@ -23,13 +42,13 @@ const OrderPage = async () => {
                 <h1 className=' text-4xl  font-bold text-gray-500 tracking-tight mb-8'>
                     My Orders
                 </h1>
-                {orders.lenght === 0 ? (
+                {orders.length === 0 ? (
                     <div className='text-center text-gray-600'>
                         <p> No Any Orders Yet</p>
                     </div>
                 ) : (
                     <div className=' space-y-6  sm:space-y-8'>
-                        {orders.map((order: any) => (
+                        {orders.map((order) => (
                             <div
                                 key={order.orderNumber}
                                 className=' bg-white border border-gray-200 rounded-lg
@@ -55,7 +74,7 @@ const OrderPage = async () => {
                                 <div className=' flex flex-col gap-4 sm:flex-row  sm:justify-between sm:items-center'>
                                     <div className=' flex items-center'>
                                         <span className=' text-md mr-2'> Status : </span>
-                                        <span className={` px-3 py-1 rounded-full text-sm ${order.Status === "paid" ? " bg-green-200 text-green-800" : " bg-gray-200 text-gray-800"
+                                        <span className={` px-3 py-1 rounded-full text-sm ${order.status === "paid" ? " bg-green-200 text-green-800" : " bg-gray-200 text-gray-800"
                                             }`}>
                                             {order.status}
 
