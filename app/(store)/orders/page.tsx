@@ -6,6 +6,23 @@ import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
+type Order = {
+    orderNumber: string;
+    orderDate: string;
+    status: string;
+    totalPrice: number;
+    currency: string;
+    amountDiscount?: number;
+    product: {
+        product: {
+            _id: string;
+            name: string;
+            image: string;
+            price: number;
+        };
+        quantity: number;
+    }[];
+};
 
 const OrderPage = async () => {
 
@@ -14,23 +31,7 @@ const OrderPage = async () => {
         return redirect("/")
     }
 
-    type Order = {
-        orderNumber: string;
-        orderDate: string;
-        status: string;
-        totalPrice: number;
-        currency: string;
-        amountDiscount?: number;
-        product: {
-            product: {
-                _id: string;
-                name: string;
-                image: string;
-                price: number;
-            };
-            quantity: number;
-        }[];
-    };
+   
 
     const orders: Order[] = await getMyOrders(userId);
 
@@ -48,7 +49,7 @@ const OrderPage = async () => {
                     </div>
                 ) : (
                     <div className=' space-y-6  sm:space-y-8'>
-                        {orders.map((order) => (
+                        {orders.map((order: Order) => (
                             <div
                                 key={order.orderNumber}
                                 className=' bg-white border border-gray-200 rounded-lg
@@ -109,7 +110,7 @@ const OrderPage = async () => {
                                         Order Items
                                     </p>
                                     <div className=' space-y-3 sm:space-y-4'>
-                                        {order.product?.map((product: any) => (
+                                        {order.product?.map((product) => (
                                             <div key={product.product?._id}
                                                 className='Flex flex-col sm:flex-row sm:items-center sm:justify-between
                                              gap-3 border-b last:border-b-0'>
