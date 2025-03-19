@@ -94,6 +94,7 @@ async function createOrderInSanity(session:Stripe.Checkout.Session) {
 
 
    })
+   return order
 }
 
 
