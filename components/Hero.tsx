@@ -33,7 +33,7 @@ const Hero = () => {
           >
             <span className="opacity-80"> Don&apos;t just watch,{" "}<br /></span>
 
-            <span className="text-red-600 lg:p-38 m-10 p-20">Let&apos;s buy it!</span>
+            <span className="text-red-600 lg:p-38 m-10 ">Let&apos;s buy it!</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
